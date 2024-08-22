@@ -2,9 +2,15 @@
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
+    TimeSpan timeInBusiness = DateTime.Now - new DateTime(2018, 8, 22);
+      string ReturnTheBest(int timeSpent){
+        return timeSpent > 3000 ? "YESIRR": "WE SUCK unfortunately";
+    };
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
+    <h1 class="display-4">Welcome to the Contoso Application</h1>
+    <h1 class = "lead">The best pizza in town for @Convert.ToInt32(timeInBusiness.TotalDays) days!</h1>
+    <h2 class = "display-4"> @ReturnTheBest(Convert.ToInt32(timeInBusiness.TotalDays))</h2>
     <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
 </div>
